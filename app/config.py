@@ -25,7 +25,7 @@ class Settings:
         
         # G4F settings
         self.g4f_provider: str = os.getenv("G4F_PROVIDER", "auto")
-        self.g4f_model: str = os.getenv("G4F_MODEL", "gpt-3.5-turbo")
+        self.g4f_model: str = os.getenv("G4F_MODEL", "gpt-4o")
         self.g4f_timeout: int = int(os.getenv("G4F_TIMEOUT", "60"))
         self.g4f_retries: int = int(os.getenv("G4F_RETRIES", "3"))
         

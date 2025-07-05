@@ -141,7 +141,7 @@ class G4FService:
             )
             
         except Exception as e:
-            logger.error(f"Error in chat completion: {str(e)}")
+            logger.error(f"Error in chat completion: {str(e)}", exc_info=True)
             raise
     
     async def create_chat_completion_stream(
@@ -308,19 +308,19 @@ class G4FService:
                 ProviderInfo(
                     id="OpenAI",
                     url="https://api.openai.com",
-                    models=["gpt-3.5-turbo", "gpt-4"],
+                    models=["gpt-3.5-turbo", "gpt-4", "gpt-4o"],
                     params={"supports_stream": True}
                 ),
                 ProviderInfo(
                     id="Bing",
                     url="https://www.bing.com",
-                    models=["gpt-4"],
+                    models=["gpt-4", "gpt-4o"],
                     params={"supports_stream": True}
                 ),
                 ProviderInfo(
                     id="ChatGPT",
                     url="https://chat.openai.com",
-                    models=["gpt-3.5-turbo", "gpt-4"],
+                    models=["gpt-3.5-turbo", "gpt-4", "gpt-4o"],
                     params={"supports_stream": True}
                 )
             ]
@@ -350,6 +350,12 @@ class G4FService:
                 object="model",
                 created=int(time.time()),
                 owned_by="g4f"
+            ),
+            ModelInfo(
+                id="gpt-4o",
+                object="model",
+                created=int(time.time()),
+                owned_by="g4f"
             )
         ]
     
@@ -359,13 +365,13 @@ class G4FService:
             ProviderInfo(
                 id="OpenAI",
                 url="https://api.openai.com",
-                models=["gpt-3.5-turbo", "gpt-4"],
+                models=["gpt-3.5-turbo", "gpt-4", "gpt-4o"],
                 params={"supports_stream": True}
             ),
             ProviderInfo(
                 id="Bing",
                 url="https://www.bing.com",
-                models=["gpt-4"],
+                models=["gpt-4", "gpt-4o"],
                 params={"supports_stream": True}
             )
         ]

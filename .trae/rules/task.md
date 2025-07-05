@@ -12,7 +12,10 @@ in tech_task.md let check and update status in that file too
 
 ### Tasks
 
-- [] Create main.py with FastAPI setup
+- [x] Create main.py with FastAPI setup
 - [x] Ensure `install_dependencies.py` creates and uses a virtual environment.
 - [x] Update `dev_start.py` to run `main.py` using the virtual environment's Python executable.
 - [x] Refine `install_dependencies.py` to handle global `uv` installation and correct dependency installation within the virtual environment.
+- [x] Create `uv` installation script `install.sh`
+
+- [] Test all api
