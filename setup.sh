@@ -38,6 +38,17 @@ install_uv() {
   source "$HOME/.local/bin/env"
 }
 
+# Function to install dependencies from requirements.txt
+install_dependencies() {
+  echo "Installing dependencies from requirements.txt..."
+  if [ -f "requirements.txt" ]; then
+    uv pip install -r requirements.txt || { echo "Error: Failed to install dependencies."; exit 1; }
+    echo "Dependencies installed successfully."
+  else
+    echo "requirements.txt not found. Skipping dependency installation."
+  fi
+}
+
 # Main script logic
 if check_uv_installed; then
   echo "Skipping uv setup."
@@ -64,4 +75,9 @@ else
     echo "uv was installed, but is not available in the PATH."
     echo "Please restart your terminal or manually add '$HOME/.local/bin' to your PATH."
   fi
+fi
+
+# Install dependencies if uv is available
+if command -v uv &> /dev/null; then
+  install_dependencies
 fi
