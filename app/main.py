@@ -72,8 +72,8 @@ async def global_exception_handler(request: Request, exc: Exception):
 
 
 # Startup event
-@app.on_event("startup")
 async def startup_event():
+    app.add_event_handler("startup", startup_event)
     """Application startup event."""
     logger.info(f"Starting {settings.api_title} v{__version__}")
     logger.info(f"Debug mode: {settings.debug}")
@@ -91,8 +91,8 @@ async def startup_event():
 
 
 # Shutdown event
-@app.on_event("shutdown")
 async def shutdown_event():
+    app.add_event_handler("shutdown", shutdown_event)
     """Application shutdown event."""
     logger.info(f"Shutting down {settings.api_title}")
     
