@@ -427,6 +427,9 @@ LOG_LEVEL=debug python main.py
 4. Add tests if applicable
 5. Submit a pull request
 
+## Plan
+- https://github.com/boykopovar/Grok3API
+
 ## License
 
 This project is licensed under the MIT License.
